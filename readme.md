@@ -18,7 +18,28 @@ Espero que este repositorio sea de ayuda para todos aquellos que quieran un sist
 
 ## Cómo empezar?
 
-Lo primero que debes hacer es definir tu usuario Admin en el seeder UserTableSeeder.php
+Inportamos e instalamos todos los paquetes de proveedor necesarios con el script de carga automática
+
+
+```
+λ composer install
+```
+Copiamos el contenido del archivo .env.example en .env y definimos las propiedades de la BBDD en el archivo .env
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=app
+DB_USERNAME=root
+DB_PASSWORD=root
+```
+Creamos la llave encriptada
+
+```
+λ php artisan key:generate
+```
+Luego debes hacer es definir tu usuario Admin en el seeder UserTableSeeder.php
 
 ```
     public function run()
@@ -30,28 +51,7 @@ Lo primero que debes hacer es definir tu usuario Admin en el seeder UserTableSee
         ]);
     }
 ```
-Definir propiedades de la BBDD en el archivo .env
-
-```
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=app
-DB_USERNAME=root
-DB_PASSWORD=root
-```
 Y correr las migraciones y seeders
 ```
-php artisan migrate:refresh --seed
+λ php artisan migrate:refresh --seed
 ```
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
