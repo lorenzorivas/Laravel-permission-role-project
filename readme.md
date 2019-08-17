@@ -7,19 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## Acerca del Proyecto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Construi este proyecto pensando en tener una aplicación en Laravel con un sistema de roles y permisos, pero además con un panel que facilite la administración de usuarios, roles y permisos. Para ello use la última versión de Laravel 5.8 y los siguientes componentes:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [spatie/laravel-permission](https://github.com/spatie/laravel-permission).
+- [Bootstrap 4.3.1](https://github.com/twbs/bootstrap).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Espero que este repositorio sea de ayuda para todos aquellos que quieran un sistema de administración de usuarios y roles en el increible framework Laravel.
 
 ## Learning Laravel
 
