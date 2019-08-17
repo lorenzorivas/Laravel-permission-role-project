@@ -39,7 +39,7 @@ Creamos la llave encriptada
 ```
 λ php artisan key:generate
 ```
-Luego debes hacer es definir tu usuario Admin en el seeder UserTableSeeder.php
+Luego debes definir tu usuario Admin en el seeder UserTableSeeder.php
 
 ```
     public function run()
@@ -56,6 +56,8 @@ Y correr las migraciones y seeders
 λ php artisan migrate:refresh --seed
 ```
 ## Panel de gestión de usuarios
+
+app.test/roles
 
 ![alt text](https://i.imgur.com/4sqclUM.png)
 
