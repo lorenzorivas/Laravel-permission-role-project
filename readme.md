@@ -55,3 +55,6 @@ Y correr las migraciones y seeders
 ```
 λ php artisan migrate:refresh --seed
 ```
+## Panel de gestión de usuarios
+
+![alt text](https://i.imgur.com/4sqclUM.png)
