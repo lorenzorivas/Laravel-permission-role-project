@@ -58,3 +58,19 @@ Y correr las migraciones y seeders
 ## Panel de gestión de usuarios
 
 ![alt text](https://i.imgur.com/4sqclUM.png)
+
+## Cómo trabajar con este proyecto?
+
+Cuando defines una ruta, deberás elegir si tendra un middleware o estará disponible para todos. Si decides que tendrá un filtro de solicitudes HTTP, deberás dejar tu ruta en el middleware Auth y asignarle un permiso (tú lo defines):
+
+```
+Route::middleware(['auth'])->group(function () {
+[...]
+Route::get('products', 'ProductController@index')->name('products.index')
+	->middleware('permission:products.products');
+[...]
+});
+```
+Ahora simplemente ve al Panel de gestión de usuarios, agrega el nuevo permiso "products.products" y asignalo a un rol existe o a uno nuevo, y ya está. Ah! asigna ese rol a un usuario.
+
+... y creo que es todo.
