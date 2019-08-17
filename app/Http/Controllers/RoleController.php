@@ -13,12 +13,15 @@ class RoleController extends Controller
     {
         $roles = Role::all();
         $permissions = Permission::all();
-        $users = User::orderBy('id', 'ASC')->paginate(5);
+
+        $busqueda  = $request->get('busqueda');
+
+        $users = User::orderBy('id', 'ASC')->busqueda($busqueda)->paginate(5);
 
         $total_roles = Role::all()->count();
         $total_permissions = Permission::all()->count();
 
-        return view('roles.index',compact('roles', 'total_roles', 'permissions', 'total_permissions', 'users'));
+        return view('roles.index',compact('roles', 'total_roles', 'permissions', 'total_permissions', 'users', 'busqueda'));
     }
 
     public function store(Request $request)

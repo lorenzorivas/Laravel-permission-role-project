@@ -298,6 +298,17 @@
 
     <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Tabla de usuarios del sistema</h4>
+
+      {{ Form::open(['route' => 'roles.index', 'method' => 'GET']) }}
+        <div class="input-group">
+        <input type="text" class="form-control" placeholder="o ingresa una busqueda" name="busqueda">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-secondary"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      {{ Form::close() }}
+
+
         <table class="table table-striped">
           <thead>
             <tr>
