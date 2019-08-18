@@ -236,7 +236,7 @@
     <div class="col-md-4 order-md-2 mb-4">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
         <span class="text-muted">Lista de Roles <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-create-role"><i class="fa fa-plus"></i></button></span>
-        <span class="badge badge-secondary badge-pill">{{ $total_roles }}</span>
+        <label class="badge badge-info">{{ $total_roles }}</label>
       </h4>
       <ul class="list-group mb-3">
         @foreach($roles as $role)
@@ -246,11 +246,11 @@
             <small class="text-muted">{{ $role->guard_name }}</small>
           </div>
             <div class="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-editar-role{{$role->id}}"><i class="fa fa-edit"></i></button>
+                  <button type="button" class="btn btn-info  btn-sm" data-toggle="modal" data-target=".bd-editar-role{{$role->id}}"><i class="fa fa-edit"></i></button>
                   @if($role->name == 'Admin')
-                    <button type="button" class="btn btn-secondary" disabled><i class="fa fa-trash"></i></button>
+                    <button type="button" class="btn btn-secondary  btn-sm" disabled><i class="fa fa-trash"></i></button>
                   @else
-                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bd-destroy-role{{$role->id}}"><i class="fa fa-trash"></i></button>
+                  <button type="button" class="btn btn-danger  btn-sm" data-toggle="modal" data-target=".bd-destroy-role{{$role->id}}"><i class="fa fa-trash"></i></button>
                   @endif
             </div>
         </li>
@@ -262,7 +262,7 @@
         @if (empty($total_permissions))
         <span class="badge badge-secondary badge-pill">Vacio</span>
         @else
-        <span class="badge badge-secondary badge-pill">{{ $total_permissions }}</span>
+        <label class="badge badge-info">{{ $total_permissions }}</label>
         @endif
       </h4>
       <ul class="list-group mb-3">
@@ -275,9 +275,9 @@
           <div class="btn-group" role="group" aria-label="Basic example">
                   
                   @if($permission->name == 'roles.roles')
-                  <button type="button" class="btn btn-danger" disabled><i class="fa fa-trash"></i></button>
+                  <button type="button" class="btn btn-danger btn-sm" disabled><i class="fa fa-trash"></i></button>
                   @else
-                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bd-destroy-permission{{$permission->id}}"><i class="fa fa-trash"></i></button>
+                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target=".bd-destroy-permission{{$permission->id}}"><i class="fa fa-trash"></i></button>
                   @endif
             </div>
         </li>
@@ -297,7 +297,7 @@
     </div>
 
     <div class="col-md-8 order-md-1">
-        <h4 class="mb-3">Tabla de usuarios del sistema</h4>
+        <h4 class="mb-3 ">Tabla de usuarios del sistema</h4>
 
       {{ Form::open(['route' => 'roles.index', 'method' => 'GET']) }}
         <div class="input-group">
@@ -326,14 +326,14 @@
               <td>      
                 @if(!empty($user->getRoleNames()))
                     @foreach($user->getRoleNames() as $role)
-                        <label class="badge badge-info">{{ $role }}</label>
+                        <label class="badge badge-info">{{ $role }}</label><br>
                     @endforeach
                 @endif
               </td>
               <td>
                   <div class="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-editar-user-role{{$user->id}}"><i class="fa fa-edit"></i></button>
-                  <button type="button" class="btn btn-secondary" disabled><i class="fa fa-ban"></i></button>
+                  <button type="button" class="btn btn-info  btn-sm" data-toggle="modal" data-target=".bd-editar-user-role{{$user->id}}"><i class="fa fa-edit"></i></button>
+                  <button type="button" class="btn btn-secondary  btn-sm" disabled><i class="fa fa-ban"></i></button>
                     </div>
               </td>
             </tr>
