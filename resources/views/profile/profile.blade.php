@@ -9,6 +9,12 @@
                     <div class="card-header bg-info text-light">
                         {{ session('status') }}
                     </div>
+                    @elseif($errors->any())
+                        @foreach($errors->all() as $error)
+                        <div class="card-header bg-info text-light">
+                            {{ $error }}
+                        </div>
+                        @endforeach
                     @else
                     <div class="card-header">
                         Perfil
@@ -19,20 +25,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-12">
-                                    @if ($errors->any())
-                                        <div class="alert alert-danger alert-dismissible" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>
-                                                        {{ $error }}
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    @endif
+                
                                     <form action="{{ route('profile.update') }}" method="POST" role="form" enctype="multipart/form-data">
                                         @csrf
                                         {{ Form::hidden('image', auth()->user()->image) }}

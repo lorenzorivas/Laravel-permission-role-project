@@ -27,7 +27,10 @@ class ProfileController extends Controller
     {
         $request->validate([
             'name'              =>  'required',
-        ]);
+        ],
+            [ 
+                'name.required' => 'Has olvidado tu nombre'
+            ]);
 
         $user = User::findOrFail(auth()->user()->id);
         $user->name = $request->input('name');

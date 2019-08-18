@@ -321,7 +321,16 @@
           <tbody>
             @foreach($users as $user)
             <tr>
-              <th scope="row">{{ $user->name }}</th>
+              <th scope="row">
+                
+                @if($user->profile_image == null)
+                <img src="{{ asset('uploads/images/generic.png') }}" style="width: 30px; height: 30px; border-radius: 50%;">
+                @else
+                <img src="{{ asset($user->profile_image) }}" style="width: 30px; height: 30px; border-radius: 50%;">
+                @endif
+                {{ $user->name }}
+
+              </th>
               <td>{{ $user->email }}</td>
               <td>      
                 @if(!empty($user->getRoleNames()))
