@@ -58,9 +58,11 @@ Y correr las migraciones y seeders
 ```
 ## Panel de gestión de usuarios
 
-app.test/roles
-
 ![alt text](https://i.imgur.com/mIR4gfw.png)
+
+## Perfil de usuario
+
+![alt text](https://i.imgur.com/LCa9gva.png)
 
 ## Cómo trabajar con este proyecto?
 
@@ -80,5 +82,5 @@ Ahora simplemente ve al Panel de gestión de usuarios, agrega el nuevo permiso "
 
 ## Qué sigue?
 
-* Vista automática de Login para perfil de usuario (cambio de clave y otros elementos importantes) 
-* CRUD libros, capitulos y personajes (proyecto propio)
+- [x] Vista automática de Login para perfil de usuario (cambio de clave y otros elementos importantes) 
+- [ ] CRUD libros, capitulos y personajes (proyecto propio)
