@@ -78,7 +78,7 @@
                                             </div>
                                         </div>
                                     </form>
-                    <a class="nav-link text-danger" href="{{ url('/changepassword') }}"><i class="fa fa-key"></i> Cambiar password</a>
+				    <a class="nav-link text-danger" href="{{ url('/changepassword') }}"><i class="fa fa-key"></i> Cambiar password</a>
                                 </div>
                             </div>
                         </div>

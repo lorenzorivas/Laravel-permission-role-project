@@ -72,7 +72,7 @@
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Ok</button>
     </div>
 </div>
 {!! Form::close() !!}
@@ -172,7 +172,7 @@
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Ok</button>
     </div>
 
 </div>
@@ -289,7 +289,7 @@
         <div class="input-group">
           <input type="text" class="form-control" name="name" placeholder="Agregar Permiso">
           <div class="input-group-append">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Ok</button>
           </div>
         </div>
         {!! Form::close() !!}
@@ -301,7 +301,7 @@
 
       {{ Form::open(['route' => 'roles.index', 'method' => 'GET']) }}
         <div class="input-group">
-        <input type="text" class="form-control" placeholder="o ingresa una busqueda" name="busqueda">
+        <input type="text" class="form-control" placeholder="busqueda de usuarios" name="busqueda">
           <div class="input-group-append">
             <button type="submit" class="btn btn-secondary"><i class="fa fa-search"></i></button>
           </div>

@@ -43,4 +43,9 @@ class User extends Authenticatable
             return $query->where('name', 'LIKE', "%$busqueda%")
                          ->orWhere('email', 'LIKE', "%$busqueda%");
     }
+
+    public function getImageAttribute()
+    {
+       return $this->profile_image;
+    }
 }
