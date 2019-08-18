@@ -13,6 +13,7 @@ Construi este proyecto pensando en tener una aplicación en Laravel con un siste
 
 - [spatie/laravel-permission](https://github.com/spatie/laravel-permission).
 - [Bootstrap 4.3.1](https://github.com/twbs/bootstrap).
+- [LaravelCollective](https://laravelcollective.com/).
 
 Espero que este repositorio sea de ayuda para todos aquellos que quieran un sistema de administración de usuarios y roles en el increible framework Laravel.
 
