@@ -60,7 +60,7 @@ Y correr las migraciones y seeders
 
 app.test/roles
 
-![alt text](https://i.imgur.com/4sqclUM.png)
+![alt text](https://i.imgur.com/mIR4gfw.png)
 
 ## Cómo trabajar con este proyecto?
 
@@ -77,3 +77,8 @@ Route::get('products', 'ProductController@index')->name('products.index')
 Ahora simplemente ve al Panel de gestión de usuarios, agrega el nuevo permiso "products.products" y asignalo a un rol existe o a uno nuevo, y ya está. Ah! asigna ese rol a un usuario.
 
 ... y creo que es todo.
+
+## Qué sigue?
+
+* Vista automática de Login para perfil de usuario (cambio de clave y otros elementos importantes) 
+* CRUD libros, capitulos y personajes (proyecto propio)
