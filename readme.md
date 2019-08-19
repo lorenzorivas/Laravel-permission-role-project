@@ -106,5 +106,5 @@ class User extends Authenticatable
 
 - [x] Vista panel de administración de usuarios 
 - [x] Vista automática de Login para perfil de usuario (cambio de clave y otros elementos importantes)
-- [x] Vista actividad usarios
+- [x] Vista actividad usuarios
 - [ ] CRUD libros, capitulos y personajes (proyecto propio)
