@@ -12,6 +12,7 @@
 Construi este proyecto pensando en tener una aplicación en Laravel con un sistema de roles y permisos, pero además con un panel que facilite la administración de usuarios, roles y permisos. Para ello use la última versión de Laravel 5.8 y los siguientes componentes:
 
 - [spatie/laravel-permission](https://github.com/spatie/laravel-permission).
+- [spatie/laravel-activitylog](https://github.com/spatie/laravel-activitylog).
 - [Bootstrap 4.3.1](https://github.com/twbs/bootstrap).
 - [LaravelCollective](https://laravelcollective.com/).
 
@@ -20,7 +21,6 @@ Espero que este repositorio sea de ayuda para todos aquellos que quieran un sist
 ## Cómo empezar?
 
 Inportamos e instalamos todos los paquetes de proveedor necesarios con el script de carga automática
-
 
 ```
 λ composer install
@@ -58,11 +58,15 @@ Y correr las migraciones y seeders
 ```
 ## Panel de gestión de usuarios
 
-![alt text](https://i.imgur.com/mIR4gfw.png)
+![alt text](https://i.imgur.com/AkyRJtd.png)
 
 ## Perfil de usuario
 
-![alt text](https://i.imgur.com/LCa9gva.png)
+![alt text](https://i.imgur.com/FVUP0cN.png)
+
+## Actividad de usuarios
+
+![alt text](https://i.imgur.com/R8MXCQI.png)
 
 ## Cómo trabajar con este proyecto?
 
@@ -80,7 +84,27 @@ Ahora simplemente ve al Panel de gestión de usuarios, agrega el nuevo permiso "
 
 ... y creo que es todo.
 
+Si deseas tener la visibilidad de la actividad de los usuarios sobre tu Modelo Productos, debes agregar lo siguiente en el model.php
+
+```
+<?php
+namespace App;
+[...]
+use Spatie\Activitylog\Traits\LogsActivity;
+
+class User extends Authenticatable
+{
+    use Notifiable, HasRoles, LogsActivity;
+[...]
+    protected static $logName = 'User Activitylog';
+    protected static $logAttributes = ['name', 'email', 'profile_image'];
+[...]
+}
+```
+
 ## Qué sigue?
 
-- [x] Vista automática de Login para perfil de usuario (cambio de clave y otros elementos importantes) 
+- [x] Vista panel de administración de usuarios 
+- [x] Vista automática de Login para perfil de usuario (cambio de clave y otros elementos importantes)
+- [x] Vista actividad usarios
 - [ ] CRUD libros, capitulos y personajes (proyecto propio)
