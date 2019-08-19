@@ -308,16 +308,9 @@
         </div>
       {{ Form::close() }}
 
-
+      <br>
         <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Nombre</th>
-              <th scope="col">Email</th>
-              <th scope="col">Roles</th>
-              <th scope="col">Acciones</th>
-            </tr>
-          </thead>
+
           <tbody>
             @foreach($users as $user)
             <tr>
@@ -353,5 +346,52 @@
       
     </div>
   </div>
+    <h2>Actividad usuarios</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Usuario</th>
+              <th>Propiedades</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($activities as $activity)
+            <tr>
+              <td>{{ $activity->log_name }} <br> 
+                <span class="badge badge-info">{{ $activity->description }}</span>
+              </td>
+              <td>
+                @if(!$activity->causer['name'])
+                system in {{ $activity->subject_type }} <br>el: {{ $activity->created_at }}
+                @else
+                {{ $activity->causer['name'] }} in {{ $activity->subject_type }} <br>el: {{ $activity->created_at }}
+                @endif
+              </td>
+              <td>
+                @if(strpos($activity->properties, 'old') !== false )
+                @foreach($activity->changes['attributes'] as $field => $value)
+                    {{-- {{ $loop->first ? '' : ', ' }} --}}
+                    <strong>{{ $field }}</strong>: 
+                    {{ $activity->changes['old'][$field] }}
+                    to
+                    {{ $activity->changes['attributes'][$field] }}
+                    <br>
+                @endforeach
+                @else
+                @foreach($activity->changes['attributes'] as $field => $value)
+                    {{-- {{ $loop->first ? '' : ', ' }} --}}
+                    <strong>{{ $field }}</strong>:
+                    {{ $activity->changes['attributes'][$field] }}
+                    <br>
+                @endforeach
+                @endif
+              </td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
 </div>
 @endsection

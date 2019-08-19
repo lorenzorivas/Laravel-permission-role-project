@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Spatie\Activitylog\Models\Activity;
 use App\User;
 
 class RoleController extends Controller
 {
     public function index(Request $request)
     {
+        // $activities = Activity::with('subject', 'causer')->paginate(150);
+        $activities = Activity::orderBy('id', 'ASC')->paginate(150);
+
         $roles = Role::all();
         $permissions = Permission::all();
 
@@ -21,7 +25,7 @@ class RoleController extends Controller
         $total_roles = Role::all()->count();
         $total_permissions = Permission::all()->count();
 
-        return view('roles.index',compact('roles', 'total_roles', 'permissions', 'total_permissions', 'users', 'busqueda'));
+        return view('roles.index',compact('roles', 'total_roles', 'permissions', 'total_permissions', 'users', 'busqueda', 'activities'));
     }
 
     public function store(Request $request)
