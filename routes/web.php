@@ -43,4 +43,7 @@ Route::put('users/{user}', 'RoleController@assignrole')->name('roles.assignrole'
 	->middleware('permission:roles.roles');
 Route::delete('users/{users}', 'RoleController@destroyuser')->name('roles.destroyuser')
 	->middleware('permission:roles.roles');
+
+Route::get('activity', 'RoleController@activityindex')->name('activity.index')
+	->middleware('permission:roles.roles');
 });

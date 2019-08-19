@@ -12,9 +12,6 @@ class RoleController extends Controller
 {
     public function index(Request $request)
     {
-        // $activities = Activity::with('subject', 'causer')->paginate(150);
-        $activities = Activity::orderBy('id', 'ASC')->paginate(150);
-
         $roles = Role::all();
         $permissions = Permission::all();
 
@@ -25,7 +22,7 @@ class RoleController extends Controller
         $total_roles = Role::all()->count();
         $total_permissions = Permission::all()->count();
 
-        return view('roles.index',compact('roles', 'total_roles', 'permissions', 'total_permissions', 'users', 'busqueda', 'activities'));
+        return view('roles.index',compact('roles', 'total_roles', 'permissions', 'total_permissions', 'users', 'busqueda'));
     }
 
     public function store(Request $request)
@@ -112,5 +109,15 @@ class RoleController extends Controller
         $user->update($request->all());
         $user->roles()->sync($request->get('roles'));
         return back()->with('info', 'Rol actualizado con éxito');
+    }
+
+    public function activityindex(Request $request)
+    {
+        $busqueda  = $request->get('busqueda');
+
+        // $activities = Activity::with('subject', 'causer')->paginate(150);
+        $activities = Activity::orderBy('id', 'ASC')->busqueda($busqueda)->paginate(5);
+
+        return view('roles.activity',compact('activities', 'busqueda'));
     }
 }
