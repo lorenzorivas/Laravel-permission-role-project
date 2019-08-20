@@ -60,6 +60,10 @@ Y correr las migraciones y seeders
 
 ![alt text](https://i.imgur.com/AkyRJtd.png)
 
+## Registro
+
+![alt text](https://i.imgur.com/PaO78u8.png).
+
 ## Perfil de usuario
 
 ![alt text](https://i.imgur.com/FVUP0cN.png)
