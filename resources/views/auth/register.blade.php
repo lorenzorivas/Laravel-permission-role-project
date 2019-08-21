@@ -42,7 +42,7 @@
                               @csrf
                                 <div class="wizard-navigation">
                                     <ul>
-                                        {{-- <li><a href="#about" data-toggle="tab">Cuenta</a></li> --}}
+                                        <li><a href="#about" data-toggle="tab">Cuenta</a></li>
                                         {{-- <li><a href="#account" data-toggle="tab">Account</a></li> --}}
                                         <li><a href="#address" data-toggle="tab">Datos</a></li>
                                     </ul>
@@ -165,18 +165,18 @@
                                     <div class="tab-pane" id="address">
                                         <div class="row">
                                             <div class="col-sm-12">
-                                                <h4 class="info-text"> Are you living in a nice area? </h4>
+                                                <h4 class="info-text"> Agrega algunos datos extras </h4>
                                             </div>
                                             <div class="col-sm-7 col-sm-offset-1">
                                                 <div class="form-group label-floating">
-                                                    <label class="control-label">Street Name</label>
+                                                    <label class="control-label">Cargo</label>
                                                     <input type="text" name="street_name" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group label-floating">
-                                                    <label class="control-label">Street Number</label>
-                                                    <input type="text" name="street_num" class="form-control">
+                                                    <label class="control-label">Contacto</label>
+                                                    <input type="number" name="street_num" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-sm-5 col-sm-offset-1">
