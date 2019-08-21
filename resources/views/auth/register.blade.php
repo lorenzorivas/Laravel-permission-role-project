@@ -42,9 +42,9 @@
                               @csrf
                                 <div class="wizard-navigation">
                                     <ul>
-                                        <li><a href="#about" data-toggle="tab">Cuenta</a></li>
+                                        <li><a href="#about" data-toggle="tab">Crear cuenta</a></li>
                                         {{-- <li><a href="#account" data-toggle="tab">Account</a></li> --}}
-                                        <li><a href="#address" data-toggle="tab">Datos</a></li>
+                                        {{-- <li><a href="#address" data-toggle="tab">Datos</a></li> --}}
                                     </ul>
                                 </div>
 
@@ -52,7 +52,7 @@
                                     <div class="tab-pane" id="about">
                                         <div class="row">
                                             <h4 class="info-text"> 
-                                                Empecemos con la información básica
+                                                Información básica de tu cuenta
                                                 @error('email')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -213,6 +213,8 @@
 
                                     <div class="pull-left">
                                         <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
+                                        <a class="btn btn-link" href="{{ route('login') }}" style="text-decoration: none;">
+                                        {{ __('Login') }}</a>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>

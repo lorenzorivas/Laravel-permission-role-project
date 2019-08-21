@@ -116,7 +116,7 @@ class RoleController extends Controller
         $busqueda  = $request->get('busqueda');
 
         // $activities = Activity::with('subject', 'causer')->paginate(150);
-        $activities = Activity::orderBy('id', 'ASC')->busqueda($busqueda)->paginate(5);
+        $activities = Activity::orderBy('id', 'ASC')->busqueda($busqueda)->paginate(4);
 
         return view('roles.activity',compact('activities', 'busqueda'));
     }
