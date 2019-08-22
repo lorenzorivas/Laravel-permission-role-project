@@ -58,19 +58,19 @@ Y correr las migraciones y seeders
 ```
 ## Panel de gestión de usuarios
 
-![alt text](https://i.imgur.com/AkyRJtd.png)
+![alt text](https://i.imgur.com/FyZvFFR.png)
 
-## Registro
+## Panel roles y permisos
 
-![alt text](https://i.imgur.com/PaO78u8.png).
+![alt text](https://i.imgur.com/pfurCJM.png)
 
 ## Perfil de usuario
 
-![alt text](https://i.imgur.com/FVUP0cN.png)
+![alt text](https://i.imgur.com/4UnlNSd.png)
 
 ## Actividad de usuarios
 
-![alt text](https://i.imgur.com/R8MXCQI.png)
+![alt text](https://i.imgur.com/N0SB6RE.png)
 
 ## Cómo trabajar con este proyecto?
 
