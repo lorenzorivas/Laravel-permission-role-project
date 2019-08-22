@@ -46,23 +46,11 @@
                                 </li>
                             @endif
                         @else
-                            @can('roles.roles')
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Panel Admin <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ url('/roles') }}">
-                                        <i class="fa fa-users-cog"></i> Permisos
-                                    </a>
-
-                                    <a class="dropdown-item" href="{{ url('/activity') }}">
-                                        <i class="fa fa-chart-line"></i> Actividad
-                                    </a>
-                                </div>
-                            </li>
-                            @endcan
+                        @can('roles.roles')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('roles') }}">{{ __('Panel Admin') }}</a>
+                        </li>
+                        @endcan
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 @if (auth()->user()->image)

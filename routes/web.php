@@ -39,6 +39,9 @@ Route::delete('roles/{role}', 'RoleController@destroy')->name('roles.destroy')
 	->middleware('permission:roles.roles');
 Route::delete('permission/{permission}', 'RoleController@destroypermission')->name('roles.destroypermission')
 	->middleware('permission:roles.roles');
+
+Route::get('users', 'UserController@index')->name('users.index')
+	->middleware('permission:roles.roles');
 Route::put('users/{user}', 'RoleController@assignrole')->name('roles.assignrole')
 	->middleware('permission:roles.roles');
 Route::delete('users/{users}', 'RoleController@destroyuser')->name('roles.destroyuser')
