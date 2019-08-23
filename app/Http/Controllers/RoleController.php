@@ -7,6 +7,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Spatie\Activitylog\Models\Activity;
 use App\User;
+use App\Task;
 
 class RoleController extends Controller
 {
@@ -119,5 +120,34 @@ class RoleController extends Controller
         $activities = Activity::orderBy('id', 'ASC')->busqueda($busqueda)->paginate(4);
 
         return view('roles.activity',compact('activities', 'busqueda'));
+    }
+
+    public function task(Request $request)
+    {
+        $busqueda  = $request->get('busqueda');
+        $user  = $request->get('user');
+        $tasks = Task::orderBy('is_complete', 'ASC')->busqueda($busqueda)->user($user)->paginate(7);
+        $total_task = Task::all()->count();
+        $tasks_complete = Task::where("is_complete", true)->count();
+        $tasks_incomplete = Task::where("is_complete", false)->count();
+        if ($total_task !== 0) {
+        $percentage = ($tasks_complete / $total_task * 100);
+        }
+
+        if ($total_task == 0) {
+        $percentage = 0;
+        }
+
+        $users = User::all();
+
+        return view("roles.task", compact("tasks", 'tasks_complete', 'tasks_incomplete', 'total_task', 'percentage', 'users', 'user'));
+    }
+
+    public function develop(Request $request, $id)
+    {
+        $task = Task::find($id);
+        $newTask = $task->update(['is_complete' => false]);
+
+        return back()->with('info', 'Tarea finalizada');
     }
 }

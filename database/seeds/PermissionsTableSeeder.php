@@ -5,6 +5,7 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\User;
+use App\Task;
 
 class PermissionsTableSeeder extends Seeder
 {
@@ -15,9 +16,15 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
+        // $task = Task::create([
+        //     'user_id' => '1',
+        //     'title' => 'Tarea de prueba',
+        //     'is_complete' => true,
+        // ]);
         //Permission list
         // Permission::create(['name' => 'products.products']);
         Permission::create(['name' => 'roles.roles']);
+        Permission::create(['name' => 'task.task']);
 
         //Admin
         $admin = Role::create(['name' => 'Admin']);
@@ -35,9 +42,9 @@ class PermissionsTableSeeder extends Seeder
         //Guest
         $guest = Role::create(['name' => 'Guest']);
 
-        // $guest->givePermissionTo([
-        //     'products.products'
-        // ]);
+        $guest->givePermissionTo([
+            'task.task'
+        ]);
 
         //User Admin
         $user = User::find(1); //Admin

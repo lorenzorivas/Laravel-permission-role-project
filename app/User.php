@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
        return $this->profile_image;
     }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }

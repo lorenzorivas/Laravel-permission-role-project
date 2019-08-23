@@ -97,9 +97,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="#">
-              <span data-feather="bar-chart-2"></span>
-              disponible
+            <a class="nav-link text-light" href="{{ url('/admin_task') }}">
+              <i class="fa fa-{{ (request()->routeIs('role.task')) ? 'chevron-circle-right' : '' }}"></i>
+              Tareas
             </a>
           </li>
           <li class="nav-item">

@@ -64,7 +64,7 @@
   </div>
 </div>
 
-        {{ Form::open(['route' => 'roles.index', 'method' => 'GET']) }}
+        {{ Form::open(['route' => 'users.index', 'method' => 'GET']) }}
         <div class="input-group">
         <input type="text" class="form-control" placeholder="busqueda de usuarios" name="busqueda">
           <div class="input-group-append">
