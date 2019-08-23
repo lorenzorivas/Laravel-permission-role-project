@@ -72,6 +72,10 @@ Y correr las migraciones y seeders
 
 ![alt text](https://i.imgur.com/N0SB6RE.png)
 
+## Panel de tareas (usuario)
+
+![alt text](https://i.imgur.com/E9mrTYp.png)
+
 ## Cómo trabajar con este proyecto?
 
 Cuando defines una ruta, deberás elegir si tendra un middleware o estará disponible para todos. Si decides que tendrá un filtro de solicitudes HTTP, deberás dejar tu ruta en el middleware Auth y asignarle un permiso (tú lo defines):
@@ -111,4 +115,5 @@ class User extends Authenticatable
 - [x] Vista panel de administración de usuarios 
 - [x] Vista automática de Login para perfil de usuario (cambio de clave y otros elementos importantes)
 - [x] Vista actividad usuarios
+- [x] Panel de tareas
 - [ ] CRUD libros, capitulos y personajes (proyecto propio)
