@@ -59,7 +59,7 @@
     <h1 class="cover-heading">@Laravel-Role-Permission-System</h1>
     <p class="lead">Constante aprendizaje.</p>
     <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+      <a href="{{ route('documentation.index') }}" class="btn btn-lg btn-secondary">Documentación</a>
     </p>
   </main>
 

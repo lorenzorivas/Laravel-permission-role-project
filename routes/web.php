@@ -25,6 +25,8 @@ Route::post('/profile/update', 'ProfileController@updateProfile')->name('profile
 Route::get('/changepassword','ProfileController@showchangepasswordform')->name('profile.showchangepasswordform');
 Route::post('/changepassword','ProfileController@changepassword')->name('profile.changepassword');
 
+Route::get('/documentation', 'HomeController@documentation')->name('documentation.index');
+
 Route::middleware(['auth'])->group(function () {
 
 Route::get('roles', 'RoleController@index')->name('roles.index')->middleware('permission:roles.roles');
@@ -46,5 +48,7 @@ Route::post('task', 'TaskController@store')->name('task.store')->middleware('per
 Route::put('task/{id}', 'TaskController@update')->name('task.update')->middleware('permission:task.task');
 Route::get('admin_task', 'RoleController@task')->name('role.task')->middleware('permission:roles.roles');
 Route::put('admin_task/{id}', 'RoleController@develop')->name('task.develop')->middleware('permission:roles.roles');
+
+Route::get('users/export/', 'UserController@export')->name('users.export')->middleware('permission:roles.roles');
 
 });

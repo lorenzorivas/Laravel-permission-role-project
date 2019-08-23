@@ -8,6 +8,10 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Activitylog\Models\Activity;
 use App\User;
 
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
+
 class UserController extends Controller
 {
     public function index(Request $request)
@@ -23,5 +27,10 @@ class UserController extends Controller
         $total_permissions = Permission::all()->count();
 
         return view('roles.users',compact('roles', 'total_roles', 'permissions', 'total_permissions', 'users', 'busqueda'));
+    }
+
+    public function export() 
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
     }
 }

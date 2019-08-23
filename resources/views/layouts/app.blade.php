@@ -14,6 +14,8 @@
   <style type="text/css">
     #help { opacity: 0; margin-left: 0.1em; padding: 0.4em; }
     a:hover + #help, #help:hover { opacity: 0.5; cursor: pointer; }
+    pre { background-color: #292b2c; color: white;padding: 10px; border-radius: 4px }
+    kbd { background-color: #292b2c; color: white;padding: 10px; border-radius: 4px }
   </style>
 </head>
 <body>
