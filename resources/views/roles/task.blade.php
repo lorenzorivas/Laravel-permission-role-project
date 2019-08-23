@@ -8,10 +8,13 @@
       <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
       <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
     </div>
-    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-      <span data-feather="calendar"></span>
-      This week
-    </button>
+    <div class="progress">
+      @if(number_format($percentage) == 100)
+      <div class="progress-bar bg-success" role="progressbar" style="width: {{ $percentage }}%" aria-valuenow="{{ $percentage }}" aria-valuemin="0" aria-valuemax="100">{{number_format($percentage)}}%  tareas completadas</div>
+      @else
+      <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ $percentage }}%" aria-valuenow="{{ $percentage }}" aria-valuemin="0" aria-valuemax="100">{{number_format($percentage)}}% tareas completadas</div>
+      @endif
+    </div>
   </div>
 </div>
 {{ Form::open(['route' => 'role.task', 'method' => 'GET']) }}
@@ -20,7 +23,7 @@
   <select class="custom-select" name="user">
     <option selected value="">Busca por usuario</option>
         @foreach($users as $user)
-        <option value="{{$user->id}}">{{$user->name}}</option>
+        <option value="{{$user->id}}">{{$user->name}} [{{ $user->id }}]</option>
         @endforeach
     </select>
     <div class="input-group-append">
