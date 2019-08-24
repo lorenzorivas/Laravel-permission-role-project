@@ -51,10 +51,10 @@ public function run()
         <h2>#Trabajar con Roles y permisos</h2>
         <p>Cuando defines una ruta, deberás elegir si tendra un middleware o estará disponible para todos. Si decides que tendrá un filtro de solicitudes HTTP, deberás dejar tu ruta en el middleware Auth y asignarle un permiso (tú lo defines):</p>
         <pre><code>
-Route::middleware(['auth'])->group(function () {
+<span style="color: #1c78c0;">Route::middleware</span>(['auth'])-><span style="color: #1c78c0;">group</span>(<span style="color: #1c78c0;">function</span> () {
 <span class="text-muted">[...]</span>
-Route::get('products', 'ProductController@index')->name('products.index')
-	->middleware('permission:products.products');
+<span style="color: #1c78c0;">Route::get</span>('products', 'ProductController@index')-><span style="color: #1c78c0;">name</span>('products.index')
+	-><span style="color: #1c78c0;">middleware</span>('permission:products.products');
 <span class="text-muted">[...]</span>
 });
         </code></pre>
@@ -119,7 +119,7 @@ class UsersController extends Controller
 }
         </code></pre>
         <p>Crear la ruta para esta exportación:</p>
-        <p><kbd>λ Route::get('users/export/', 'UserController@export')->name('users.export')->middleware('permission:roles.roles');</kbd></p>
+        <p><kbd>λ <span style="color: #1c78c0;">Route::get</span>('users/export/', 'UserController@export')-><span style="color: #1c78c0;">name</span>('users.export')-><span style="color: #1c78c0;">middleware</span>('permission:roles.roles');</kbd></p>
         <p>Finalmente, en la blade agregar el siguiente código:</p>
         <pre><code>
 &lt;a href="&#123;&#123; route('users.export') &#125;&#125;"&gt;Exportar&lt;/a&gt;
@@ -201,7 +201,7 @@ class UsersController extends Controller
 }
         </code></pre>
         <p>Crear la ruta para esta exportación:</p>
-        <p><kbd>λ Route::post('import', 'UserController@import')->name('users.import')->middleware('permission:roles.roles');</kbd></p>
+        <p><kbd><span style="color: #1c78c0;">Route::post</span>('userimport', 'UserController@import')-><span style="color: #1c78c0;">name</span>('users.import')-><span style="color: #1c78c0;">middleware</span>('permission:roles.roles');</kbd></p>
         <p>Finalmente, en la blade agregar el siguiente código:</p>
         <pre><code>
 &lt;form action="&#123;&#123; route('users.import') &#125;&#125;" method="POST" enctype="multipart/form-data" class="was-validated"&gt;

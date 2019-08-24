@@ -50,6 +50,6 @@ Route::get('admin_task', 'RoleController@task')->name('role.task')->middleware('
 Route::put('admin_task/{id}', 'RoleController@develop')->name('task.develop')->middleware('permission:roles.roles');
 
 Route::get('users/export/', 'UserController@export')->name('users.export')->middleware('permission:roles.roles');
-Route::post('import', 'UserController@import')->name('users.import')->middleware('permission:roles.roles');
+Route::post('userimport', 'UserController@import')->name('users.import')->middleware('permission:roles.roles');
 
 });
