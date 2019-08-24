@@ -109,7 +109,7 @@ class RoleController extends Controller
         $user = User::find($id);
         $user->update($request->all());
         $user->roles()->sync($request->get('roles'));
-        return back()->with('info', 'Rol actualizado con éxito');
+        return back()->with('info', 'Rol/es de '.$user->name.' actualizado/s con éxito');
     }
 
     public function activityindex(Request $request)

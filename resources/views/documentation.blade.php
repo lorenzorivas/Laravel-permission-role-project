@@ -125,6 +125,97 @@ class UsersController extends Controller
 &lt;a href="&#123;&#123; route('users.export') &#125;&#125;"&gt;Exportar&lt;/a&gt;
         </code></pre>
 
+
+        <p>Primero hay que crear un import.php:</p>
+        <p><kbd>λ php artisan make:import UsersImport --model=User</kbd></p>
+        <p>En la siguiente estructura de carpetas:</p>
+        <pre><code>
+.
+├── app
+│   ├── Imports
+│   │   ├── UsersImport.php
+│ 
+└── composer.json
+        </code></pre>
+        <p>El nuevo archivo UsersExport.php tendrá el siguiente código:</p>
+        <pre><code>
+namespace App\Imports;
+
+use App\User;
+use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Concerns\ToModel;
+
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\WithValidation;
+
+class UsersImport implements ToModel, WithValidation
+{
+    use Importable;
+    /**
+    * @param array $row
+    *
+    * @return \Illuminate\Database\Eloquent\Model|null
+    */
+    public function rules(): array
+    {
+        return [
+            '1' => 'unique:users,email'
+        ];
+
+    }
+
+    public function customValidationMessages()
+    {
+        return [
+            '1.unique' => 'Correo ya está en uso.',
+        ];
+    }
+
+    public function model(array $row)
+    {
+        $user = User::create([
+            'name'     => $row[0],
+            'email'    => $row[1], 
+            'password' => Hash::make($row[2]),
+        ]);
+
+        $user->assignRole('guest');
+    }
+}
+        </code></pre>
+        <p>En el controlador de usuarios se agrega lo siguiente:</p>
+        <pre><code>
+use App\Exports\UsersExport;
+use App\Imports\UsersImport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
+
+class UsersController extends Controller 
+{
+    public function import() 
+    {
+        Excel::import(new UsersImport, request()->file('file'));
+        
+        return back()->with('success', 'Importado con éxito!');
+    }
+}
+        </code></pre>
+        <p>Crear la ruta para esta exportación:</p>
+        <p><kbd>λ Route::post('import', 'UserController@import')->name('users.import')->middleware('permission:roles.roles');</kbd></p>
+        <p>Finalmente, en la blade agregar el siguiente código:</p>
+        <pre><code>
+&lt;form action="&#123;&#123; route('users.import') &#125;&#125;" method="POST" enctype="multipart/form-data" class="was-validated"&gt;
+@csrf
+  &lt;div class="custom-file"&gt;
+    &lt;input type="file" name="file" class="custom-file-input" id="validatedCustomFile" required&gt;
+    &lt;label class="custom-file-label" for="validatedCustomFile">Choose file...&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;br&gt;
+  &lt;br&gt;
+&lt;button type="submit" class="btn btn-info btn-lg btn-block btn-sm">Subir&lt;/button&gt;
+&lt;/form&gt;
+        </code></pre>
+
       <nav class="blog-pagination">
         <a class="btn btn-outline-primary" href="#">Older</a>
       </nav>

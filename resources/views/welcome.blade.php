@@ -55,7 +55,7 @@
     </div>
   </header>
 
-  <main role="main" class="inner cover">
+  <main role="main">
     <h1 class="cover-heading">@Laravel-Role-Permission-System</h1>
     <p class="lead">Constante aprendizaje.</p>
     <p class="lead">

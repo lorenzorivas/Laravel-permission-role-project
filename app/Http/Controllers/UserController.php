@@ -9,6 +9,7 @@ use Spatie\Activitylog\Models\Activity;
 use App\User;
 
 use App\Exports\UsersExport;
+use App\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 
@@ -32,5 +33,12 @@ class UserController extends Controller
     public function export() 
     {
         return Excel::download(new UsersExport, 'users.xlsx');
+    }
+
+    public function import() 
+    {
+        Excel::import(new UsersImport, request()->file('file'));
+        
+        return back()->with('info', 'Importado con éxito!');
     }
 }
