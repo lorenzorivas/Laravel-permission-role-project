@@ -25,10 +25,16 @@ Route::post('/profile/update', 'ProfileController@updateProfile')->name('profile
 Route::get('/changepassword','ProfileController@showchangepasswordform')->name('profile.showchangepasswordform');
 Route::post('/changepassword','ProfileController@changepassword')->name('profile.changepassword');
 
+//Documentación
 Route::get('/documentation', 'HomeController@documentation')->name('documentation.index');
+
+//Public Books
+Route::get('books', 'BookController@index')->name('books.index');
+Route::get('book/{id}', 'BookController@show')->name('book.show');
 
 Route::middleware(['auth'])->group(function () {
 
+//Roles y Permsisos
 Route::get('roles', 'RoleController@index')->name('roles.index')->middleware('permission:roles.roles');
 Route::post('roles/store', 'RoleController@store')->name('roles.store')->middleware('permission:roles.roles');
 Route::put('roles/{role}', 'RoleController@update')->name('roles.update')->middleware('permission:roles.roles');
@@ -36,10 +42,12 @@ Route::post('roles', 'RoleController@storepermission')->name('roles.storepermiss
 Route::delete('roles/{role}', 'RoleController@destroy')->name('roles.destroy')->middleware('permission:roles.roles');
 Route::delete('permission/{permission}', 'RoleController@destroypermission')->name('roles.destroypermission')->middleware('permission:roles.roles');
 
+//Control de usuarios
 Route::get('users', 'UserController@index')->name('users.index')->middleware('permission:roles.roles');
 Route::put('users/{user}', 'RoleController@assignrole')->name('roles.assignrole')->middleware('permission:roles.roles');
 Route::delete('users/{users}', 'RoleController@destroyuser')->name('roles.destroyuser')->middleware('permission:roles.roles');
 
+//Actividad
 Route::get('activity', 'RoleController@activityindex')->name('activity.index')->middleware('permission:roles.roles');
 
 //Tareas
@@ -49,7 +57,12 @@ Route::put('task/{id}', 'TaskController@update')->name('task.update')->middlewar
 Route::get('admin_task', 'RoleController@task')->name('role.task')->middleware('permission:roles.roles');
 Route::put('admin_task/{id}', 'RoleController@develop')->name('task.develop')->middleware('permission:roles.roles');
 
+//Exportación-Importación
 Route::get('users/export/', 'UserController@export')->name('users.export')->middleware('permission:roles.roles');
 Route::post('userimport', 'UserController@import')->name('users.import')->middleware('permission:roles.roles');
+
+//Galeria
+Route::get('gallery', 'GalleryController@index')->name('gallery.index')->middleware('permission:gallery.gallery');
+
 
 });

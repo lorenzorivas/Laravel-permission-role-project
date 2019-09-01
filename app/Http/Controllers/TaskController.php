@@ -16,7 +16,7 @@ class TaskController extends Controller
 
         // $tasks = Task::orderBy('id', 'DESC')->where('user_id', '=', $auth_id)->where("is_complete", false)->busqueda($busqueda)->paginate(30);
 
-        $tasks = Task::orderBy('is_complete', 'ASC')->where('user_id', '=', $auth_id)->busqueda($busqueda)->paginate(30);
+        $tasks = Task::orderBy('is_complete', 'ASC')->where('user_id', '=', $auth_id)->busqueda($busqueda)->paginate(5);
         $total_task = Task::where('user_id', '=', $auth_id)->count();
         $tasks_complete = Task::where('user_id', '=', $auth_id)->where("is_complete", true)->count();
         $tasks_incomplete = Task::where('user_id', '=', $auth_id)->where("is_complete", false)->count();

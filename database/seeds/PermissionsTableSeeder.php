@@ -25,6 +25,8 @@ class PermissionsTableSeeder extends Seeder
         // Permission::create(['name' => 'products.products']);
         Permission::create(['name' => 'roles.roles']);
         Permission::create(['name' => 'task.task']);
+        Permission::create(['name' => 'books.books']);
+        Permission::create(['name' => 'gallery.gallery']);
 
         //Admin
         $admin = Role::create(['name' => 'Admin']);
@@ -51,7 +53,7 @@ class PermissionsTableSeeder extends Seeder
         $user->assignRole('Admin');
 
         //All user
-        $users = factory(User::class, 10)->create();
+        $users = factory(User::class, 9)->create();
             foreach($users as $user){
                 $user->assignRole('Guest');
         }
