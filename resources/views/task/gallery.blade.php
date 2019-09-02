@@ -12,6 +12,12 @@
 	<a class="navbar-brand" href="{{ url('gallery') }}">
         {{ config('app.name', 'Laravel') }}
     </a>
+  {{-- {!! Form::open(['route' => 'gallery.store']) !!} --}}
+  <form class="form-inline" action="{{ route('gallery.store') }}">
+  @csrf
+  <input type="text" name="picture" class="form-control">
+  <button class="btn btn-info" type="submit">Agregar</button>
+  {!! Form::close() !!}
 	<main class="container">
 		@foreach($galleries as $gallery)
 		<div class="badge"><img src="{{ $gallery->picture }}" alt=""></div>

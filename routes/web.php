@@ -63,6 +63,7 @@ Route::post('userimport', 'UserController@import')->name('users.import')->middle
 
 //Galeria
 Route::get('gallery', 'GalleryController@index')->name('gallery.index')->middleware('permission:gallery.gallery');
+Route::post('gallery', 'GalleryController@store')->name('gallery.store')->middleware('permission:gallery.gallery');
 
 
 });
